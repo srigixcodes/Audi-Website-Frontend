@@ -1,0 +1,359 @@
+```html:c:\Users\SRILEKHA\OneDrive\Desktop\Audi car\src\news.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Audi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: url('src/ab2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            line-height: 1.6;
+            position: relative;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #000000;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar img {
+            width: 80px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            border-radius: 3px;
+        }
+        
+        .nav-links a:hover {
+            border: 2px solid #ff0000;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        
+        .container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .news-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+        }
+        
+        .news-header h1 {
+            font-size: 48px;
+            color: #ff0000;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding:0 20px;
+        }
+        
+        .news-card {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #ff0000;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+        }
+        
+        
+        .news-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .news-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: calc(100% - 180px);
+        }
+        
+        .news-date {
+            color: #ff0000;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .news-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #fff;
+            line-height: 1.2;
+        }
+        
+        .news-excerpt {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #ff0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            width: fit-content;
+            font-size: 16px;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 20px;
+        }
+        
+
+        .menu-btn {
+            display: none;
+            cursor: pointer;
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+        }
+        
+        .menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        
+        @media screen and (max-width: 1024px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        
+            .news-header h1 {
+                font-size: 42px;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+        
+            .menu-btn {
+                display: block;
+                right: 20px;
+            }
+        
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+            }
+        
+            .nav-links.active {
+                display: flex;
+            }
+        
+            .news-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 10px;
+            }
+        
+            .news-header h1 {
+                font-size: 36px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .container {
+                padding: 80px 10px 20px;
+            }
+        
+            .news-header h1 {
+                font-size: 28px;
+            }
+        
+            .news-card {
+                margin: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="src/images.png" alt="Audi Logo">
+        <div class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="whyus.html">Why Us</a>
+            <a href="models.html">Models</a>
+            <a href="news.html">News</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="news-header">
+            <h1>Latest News</h1>
+        </div>
+        
+        <div class="news-grid">
+            <div class="news-card">
+                <img src="src/audi event.jpg" alt="New Audi EV" class="news-image">
+                <div class="news-content">
+                    <div class="news-date">December 15, 2023</div>
+                    <h2 class="news-title">Audi Unveils New Electric Vehicle Lineup</h2>
+                    <p class="news-excerpt">Audi announces its ambitious plan to launch six new electric vehicles by 2024, marking a significant step towards sustainable mobility.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="src/audi race.jpg" alt="Audi Racing" class="news-image">
+                <div class="news-content">
+                    <div class="news-date">December 10, 2023</div>
+                    <h2 class="news-title">Audi Dominates Formula E Championship</h2>
+                    <p class="news-excerpt">Audi's racing team secures another victory in the Formula E championship, showcasing the brand's excellence in electric motorsport.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="src/a interior.jpg" alt="Audi Interior" class="news-image">
+                <div class="news-content">
+                    <div class="news-date">December 5, 2023</div>
+                    <h2 class="news-title">Next-Gen Interior Technology</h2>
+                    <p class="news-excerpt">Audi reveals revolutionary interior design with advanced AI integration and augmented reality displays for upcoming models.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="src/ars.jpg" alt="Audi Performance" class="news-image">
+                <div class="news-content">
+                    <div class="news-date">December 1, 2023</div>
+                    <h2 class="news-title">Performance Meets Sustainability</h2>
+                    <p class="news-excerpt">New Audi RS models combine high-performance capabilities with innovative eco-friendly technologies.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="src/asafety.jpg" alt="Audi Innovation" class="news-image">
+                <div class="news-content">
+                    <div class="news-date">November 28, 2023</div>
+                    <h2 class="news-title">Audi's AI-Powered Safety Features</h2>
+                    <p class="news-excerpt">Revolutionary AI-driven safety systems set new standards in automotive protection and accident prevention.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="src/a des.jpg" alt="Audi Design" class="news-image">
+                <div class="news-content">
+                    <div class="news-date">November 25, 2023</div>
+                    <h2 class="news-title">Future of Audi Design</h2>
+                    <p class="news-excerpt">Audi's design team reveals upcoming aesthetic direction combining tradition with futuristic elements.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
+```

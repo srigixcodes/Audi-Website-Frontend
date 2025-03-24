@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Us - Audi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: url('src/bg1.jpg') no-repeat center center/cover;
+            color: #ffffff;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar img {
+            width: 80px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            border-radius: 3px;
+        }
+        
+        .nav-links a:hover {
+            border: 0.9px solid #ff0000;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            text-align: center;
+            padding: 100px 0 50px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #ff0000;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-box {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #ff0000;
+            padding: 50px;
+            width: 30%;
+            height: 500px;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .feature-box img {
+            width: 100%;
+            max-height: 250px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .feature-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+        }
+
+        .features .feature-box:active {
+            transform: scale(1.3);
+        }
+
+        .features .feature-box:active ~ .feature-box {
+            transform: scale(0.8);
+        }
+
+        /* Add hamburger menu styles */
+.menu-btn {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+    .features {
+        gap: 20px;
+    }
+
+    .feature-box {
+        padding: 30px;
+        height: auto;
+        min-height: 450px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .menu-btn {
+        display: block;
+        z-index: 1001;
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .features {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .feature-box {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .feature-box:hover {
+        transform: scale(1.05);
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 80px 0 30px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .feature-box {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .feature-box img {
+        max-height: 200px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="src/images.png" alt="Audi Logo">
+        <div class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="whyus.html">Why Us</a>
+            <a href="models.html">Models</a>
+            <a href="news.html">News</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Why Choose Audi?</h1>
+        <div class="features">
+            <div class="feature-box">
+                <img src="src/ap.jpg" alt="Performance">
+                <h2>Unmatched Performance</h2>
+                <p>Experience the thrill of superior engineering with cutting-edge performance features.</p>
+            </div>
+            <div class="feature-box">
+                <img src="src/ae.jpg" alt="Innovation">
+                <h2>Innovation & Technology</h2>
+                <p>Leading automotive innovation with AI-driven features and smart automation.</p>
+            </div>
+            <div class="feature-box">
+                <img src="src/app.jpg" alt="Luxury">
+                <h2>Luxury & Comfort</h2>
+                <p>Immerse yourself in unparalleled luxury with high-end materials and craftsmanship.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+    
+            menuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

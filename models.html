@@ -1,0 +1,275 @@
+Here's the complete fixed code for your models page using only HTML and CSS:
+
+```html:c:\Users\SRILEKHA\OneDrive\Desktop\Audi car\src\models.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Models - Audi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: url('src/abg1.jpg') no-repeat center center/cover;
+            color: #ffffff;
+            line-height: 1.6;
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar img {
+            width: 80px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-end;
+            width: 60%;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            border-radius: 3px;
+            white-space: nowrap;
+        }
+        
+        
+        .nav-links a:hover {
+            border: 0.9px solid #ff0000;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+
+        h1 {
+            font-size: 48px;
+            margin: 20px 0;
+            text-transform: uppercase;
+            color: #ff0000;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.852);
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .models-wrapper {
+            width: 100%;
+            height: calc(100vh - 180px);
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+            padding: 20px;
+            position: relative;
+        }
+
+        .models {
+            display: inline-flex;
+            gap: 30px;
+            padding: 20px 50px;
+        }
+
+        .model-box {
+            width: 280px;
+            height: 500px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #ff0000;
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .model-box img {
+            width: 100%;
+            border-radius: 12px;
+            height: 55%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .model-box p {
+            white-space: normal;
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 10px;
+        }
+
+        .model-box:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(170deg, rgba(0, 0, 0, 100), rgb(189, 4, 4));
+            border-width: 3px;
+            box-shadow: 
+        0 10px 20px rgba(255, 0, 0, 0),
+        0 6px 6px rgba(189, 14, 14, 0);
+            
+        }
+
+        .model-box:hover::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            background: rgba(111, 1, 1, 0.3);
+            filter: blur(15px);
+            z-index: -1;
+            border-radius: 12px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                width: 70%;
+            }
+
+            h1 {
+                font-size: 36px;
+                padding: 15px;
+            }
+
+            .model-box {
+                width: 240px;
+                height: 450px;
+            }
+
+            .models {
+                padding: 20px 30px;
+                gap: 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+                padding: 10px;
+            }
+
+            .model-box {
+                width: 200px;
+                height: 400px;
+            }
+
+            .models {
+                padding: 20px;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="src/images.png" alt="Audi Logo">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="whyus.html">Why Us</a>
+            <a href="models.html">Models</a>
+            <a href="news.html">News</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Explore Our Models</h1>
+        <div class="models-wrapper">
+            <div class="models">
+                <div class="model-box">
+                    <img src="src/a a42.jpg" alt="Audi A1">
+                    <p>Audi A4 - ₹46L - 17 km/l - 201 HP - Luxury sedan with Virtual Cockpit</p>
+                </div>
+                <div class="model-box">
+                    <img src="src/a a62.jpg" alt="Audi A3">
+                    <p>Audi A6 - ₹65L - 13 km/l - 245 HP - Executive sedan with adaptive suspension</p>
+                </div>
+                <div class="model-box">
+                    <img src="src/A8 l.jpg" alt="Audi A4">
+                    <p>Audi A8 L - ₹1.3Cr - 11 km/l - 335 HP - High-end luxury with massaging seats</p>
+                </div>
+                <div class="model-box">
+                    <img src="src/aqq.jpg" alt="Audi A5">
+                    <p>Audi Q2 - ₹35L - 14 km/l - 190 HP - Compact SUV with Quattro all-wheel drive</p>
+                </div>
+                <div class="model-box">
+                    <img src="src/q3 3.jpg" alt="Audi A6">
+                    <p>Audi Q3 - ₹46L - 16 km/l - 187 HP - Versatile compact SUV with MMI touch</p>
+                </div>
+                <div class="model-box">
+                    <img src="src/q5.jpg" alt="Audi A7">
+                    <p>Audi Q5 - ₹65L - 13 km/l - 249 HP - Premium SUV with mild-hybrid tech</p>
+                </div>
+                <div class="model-box">
+                    <img src="src/q77.jpg" alt="Audi A8">
+                    <p>Audi Q7 - ₹95L - 12 km/l - 340 HP - 7-seater SUV with air suspension</p>
+                </div>
+                <div class="model-box">
+                    <img src="src/q88.jpg" alt="Audi Q3">
+                    <p>Audi Q8 - ₹1.2Cr - 10 km/l - 335 HP - Coupe SUV with matrix LED headlights</p>
+                </div>
+                <div class="model-box">
+                    <img src="src/rs77.jpg" alt="Audi Q5">
+                    <p>Audi RS5 - ₹1.2Cr - 9 km/l - 450 HP - High-performance sports coupe</p>
+                </div>
+                <div class="model-box">
+                    <img src="src/rs55.jpg" alt="Audi Q7">
+                    <p>Audi RS7 - ₹2.2Cr - 8 km/l - 600 HP - Powerful sportback with Quattro AWD</p>
+                </div>
+                <div class="model-box">
+                    <img src="src/etron.jpg" alt="Audi RS7">
+                    <p>Audi e-tron GT - ₹1.8Cr - 450 km range - 637 HP - Electric GT with fast charging</p>
+                </div>
+                <div class="model-box">
+                    <img src="src/beauty.jpg" alt="Audi e-tron">
+                    <p>Audi R8 - ₹3Cr - 7 km/l - 602 HP - Supercar with a naturally aspirated V10</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
